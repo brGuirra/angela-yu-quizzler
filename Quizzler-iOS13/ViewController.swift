@@ -29,9 +29,10 @@ class ViewController: UIViewController {
     }
 
     @IBAction func awswerButtonPressed(_ sender: UIButton) {
-        questionNumber += 1
-        
-        updateUI()
+        if questionNumber < (quiz.count - 1) {
+            questionNumber += 1
+            updateUI()
+        }
     }
     
     func updateUI() {
