@@ -36,11 +36,15 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="amS-6X-WFT"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="True" backgroundImage="Rectangle">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
+                                        <state key="normal" title="True" backgroundImage="Rectangle"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="True">
+                                            <backgroundConfiguration key="background" cornerRadius="28" strokeWidth="6" strokeOutset="2">
+                                                <color key="strokeColor" red="0.27450980392156865" green="0.39215686274509803" blue="0.56470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </backgroundConfiguration>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="awswerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pi6-2Z-iId"/>
                                         </connections>
@@ -55,6 +59,13 @@
                                         <state key="normal" title="False" backgroundImage="Rectangle">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <buttonConfiguration key="configuration" style="plain" title="False">
+                                            <backgroundConfiguration key="background" cornerRadius="28" strokeWidth="6" strokeOutset="2">
+                                                <color key="strokeColor" red="0.27343320850000002" green="0.39090365170000002" blue="0.56569373609999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </backgroundConfiguration>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="awswerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GKL-87-QdE"/>
                                         </connections>
