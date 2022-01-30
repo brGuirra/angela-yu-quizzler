@@ -14,8 +14,6 @@ class ViewController: UIViewController {
     @IBOutlet var falseButton: UIButton!
     @IBOutlet var progressBar: UIProgressView!
     
-    var timer = Timer()
-    
     let quiz = [
         Question(q: "A slug's blood is green.", a: "True"),
         Question(q: "Approximately one quarter of human bones are in the feet.", a: "True"),
@@ -40,9 +38,7 @@ class ViewController: UIViewController {
     }
     
 
-    @IBAction func awswerButtonPressed(_ sender: UIButton) {
-        timer.invalidate()
-        
+    @IBAction func awswerButtonPressed(_ sender: UIButton) {        
         let userAnswer = sender.currentTitle
         let actualAnswer = quiz[questionNumber].answer
         
@@ -62,7 +58,7 @@ class ViewController: UIViewController {
             questionNumber = 0
         }
         
-        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) {
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) {
            [weak self] timer in
             
             self?.updateUI()
