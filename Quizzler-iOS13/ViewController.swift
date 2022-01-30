@@ -30,6 +30,15 @@ class ViewController: UIViewController {
     
 
     @IBAction func awswerButtonPressed(_ sender: UIButton) {
+        let userAnswer = sender.currentTitle
+        let actualAnswer = quiz[questionNumber].answer
+        
+        if userAnswer == actualAnswer {
+            print("Right!")
+        } else {
+            print("Wrong!")
+        }
+        
         if questionNumber < (quiz.count - 1) {
             questionNumber += 1
         } else {
