@@ -42,13 +42,22 @@ struct QuizBrain {
         return score
     }
     
-    mutating func nextQuestion() {
+    mutating func isTheGameDone() -> Bool {
         if questionNumber < quiz.count - 1 {
-            questionNumber += 1
+            nextQuestion()
+            return false
         } else {
-            questionNumber = 0
-            score = 0
+            return true
         }
+    }
+    
+    mutating func nextQuestion() {
+        questionNumber += 1
+    }
+    
+    mutating func resetGame() {
+        score = 0
+        questionNumber = 0
     }
     
     mutating func checkAnswer(_ userAnswer: String) -> Bool {

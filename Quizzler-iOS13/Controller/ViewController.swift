@@ -37,13 +37,21 @@ class ViewController: UIViewController {
             sender.layer.cornerRadius = 28
         }
         
-        quizBrain.nextQuestion()
-        
-        Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) {
-           [weak self] timer in
-            
-            self?.updateUI()
-
+        if quizBrain.isTheGameDone() {
+            let ac = UIAlertController(title: "Finish", message: "Your score is: \(quizBrain.score)", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Play again", style: .default) {
+               [weak self] _ in
+                
+                self?.quizBrain.resetGame()
+                self?.updateUI()
+            })
+            present(ac, animated: true)
+        } else {
+            Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) {
+                [weak self] timer in
+                
+                self?.updateUI()
+            }
         }
     }
     
@@ -53,7 +61,9 @@ class ViewController: UIViewController {
         progressBar.progress = quizBrain.getProgress()
         
         let buttons = [firstOption, secondOption, thirdOption]
-        let answers = quizBrain.getAnswersText()
+        var answers = quizBrain.getAnswersText()
+        
+        answers.shuffle()
         
         for (index, answer) in answers.enumerated() {
             buttons[index]?.setTitle(answer, for: .normal)
