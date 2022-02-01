@@ -11,9 +11,10 @@ import UIKit
 class ViewController: UIViewController {    
     @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var questionLabel: UILabel!
-    @IBOutlet var trueButton: UIButton!
-    @IBOutlet var falseButton: UIButton!
     @IBOutlet var progressBar: UIProgressView!
+    @IBOutlet var firstOption: UIButton!
+    @IBOutlet var secondOption: UIButton!    
+    @IBOutlet var thirdOption: UIButton!
     
     var quizBrain = QuizBrain()
     
@@ -49,13 +50,19 @@ class ViewController: UIViewController {
     func updateUI() {
         scoreLabel.text = "Score: \(quizBrain.getScore())"
         questionLabel.text = quizBrain.getQuestionText()
-        trueButton.backgroundColor = UIColor.clear
-        falseButton.backgroundColor = UIColor.clear
         progressBar.progress = quizBrain.getProgress()
+        
+        let buttons = [firstOption, secondOption, thirdOption]
+        let answers = quizBrain.getAnswersText()
+        
+        for (index, answer) in answers.enumerated() {
+            buttons[index]?.setTitle(answer, for: .normal)
+            buttons[index]?.backgroundColor = UIColor.clear
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
-    }    
+    }
 }
 
